@@ -1,0 +1,16 @@
+#!/usr/bin/expect
+ 
+# Replace 'govadmin' and 'supp0rt$ESDS' with the actual values
+set username "govadmin"
+set password "supp0rt\$ESDS"
+ 
+# Use 'expect' to automate login
+spawn su $username
+expect "Password:"
+send "$password\r"
+ 
+# Perform commands after successful login
+expect "$ "
+send "whoami\r"
+expect "$ "
+send "exit\r"
